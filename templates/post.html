@@ -1,0 +1,23 @@
+{% include "header.html" %}
+
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('{{product.img_url}}')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <a class="product-item" href="{{ url_for('cart', product_id=product.id ) }}">
+            <img src="{{ product.img_url }}" class="img-fluid product-thumbnail">
+            <h3 class="product-title">{{ product.name }}</h3>
+            <strong class="product-price">{{ product.price }}</strong>
+            <p class="product-subtitle">{{ product.description }}</p>
+             {% if current_user %}
+            <span class="bi bi-cart-plus">
+                <img src="{{ url_for('static', filename='assets/img/cross.svg') }}" class="img-fluid">
+            </span>
+            {% endif %}
+        </a>
+      </div>
+    </div>
+  </div>
+    {{ bootstrap.load_js() }}
+</header>
