@@ -28,25 +28,4 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 })
 
-// stripe.js
-
-// This is your test publishable API key.
-const stripe = Stripe("pk_test_51O8zp1CoYKDSC2sEs4roJ517dZ2igx5xiePwSyX8G6ZvSDgeFrr3QUo1cmMGrMhtXeoPMOkS7mGgwtw3pLf3YIkg00VX3LPa2R");
-
-initialize();
-
-// Create a Checkout Session as soon as the page loads
-async function initialize() {
-  const response = await fetch("/create-checkout-session", {
-    method: "POST",
-  });
-
-  const { clientSecret } = await response.json();
-
-  const checkout = await stripe.initEmbeddedCheckout({
-    clientSecret,
-  });
-
-  // Mount Checkout
-  checkout.mount('#checkout');
 }

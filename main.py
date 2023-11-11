@@ -9,6 +9,7 @@ import os
 
 
 stripe.api_key = os.environ.get('stripe_secret_key')
+stripe_public_key = os.environ.get('stripe_public_key')
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '3DYBkEfBA6O6dmnzWlsiHBXox7C0sKR5b'
@@ -149,7 +150,7 @@ def show_cart():
         quantity += cart_item.quantity
 
     return render_template("cart.html", current_user=current_user, cart_items=cart_items, total_price=total_price,
-                           quantity=quantity)
+                           quantity=quantity, key=stripe_public_key)
 
 
 @app.route('/cart/<int:product_id>', methods=["GET", "POST"])
@@ -180,23 +181,28 @@ def cart(product_id):
 @app.route('/checkout', methods=["GET", "POST"])
 def checkout():
     cart_items = db.session.query(Cart, Products).join(Products).filter(Cart.user_id == current_user.id).all()
-    line_items = []
-
+    user = db.session.query(User).filter(User.id == current_user.id).first()
+    # line_items = []
+    total_amount = 0
     for cart_item, product in cart_items:
-        line_items.append({'price': product.id, "quantity": cart_item.quantity})
-    try:
-        checkout_session = stripe.checkout.Session.create(
-            payment_method_types=['card'],
-            line_items=line_items,
-            mode='payment',
-            success_url=url_for('success', _external=True),
-            cancel_url=url_for('checkout', _external=True),
-        )
+        total_amount += cart_item.quantity * product.price
 
-    except Exception as e:
-        return str(e)
+    amount = total_amount * 100
 
-    return redirect(checkout_session.url, code=303)
+    customer = stripe.Customer.create(
+        email=user.email,
+        source=request.form['stripeToken']
+    )
+
+    # Create a charge using the Stripe API
+    stripe.Charge.create(
+        customer=user.id,
+        amount=amount,
+        currency='usd',
+        description='Flask Charge'
+    )
+
+    return render_template('success.html')
 
 
 @app.route('/success')

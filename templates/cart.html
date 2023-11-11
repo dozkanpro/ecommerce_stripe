@@ -68,8 +68,17 @@
     {% endfor %}
           <div class="row">
             <div class="col-md-12">
-              <a class="btn btn-black btn-lg py-3 btn-block" href="{{ url_for('checkout') }}" >Proceed To Checkout</a>
-            </div>
+              <form action="/checkout" method="post">
+              <script
+                src="https://checkout.stripe.com/checkout.js"
+                class="stripe-button"
+                data-key="{{ key }}"
+                data-description="A Flask Charge"
+                data-amount="total_price"
+                data-locale="auto">
+              </script>
+            </form>
+                    </div>
           </div>
         </div>
       </div>
