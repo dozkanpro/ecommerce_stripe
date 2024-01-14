@@ -12,7 +12,7 @@ stripe.api_key = os.environ.get('stripe_secret_key')
 stripe_public_key = os.environ.get('stripe_public_key')
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '3DYBkEfBA6O6dmnzWlsiHBXox7C0sKR5b'
+app.config['SECRET_KEY'] = os.environ.get('ECOMMERCE_SECRET_KEY')
 Bootstrap5(app)
 
 # Configure Flask-Login
@@ -187,7 +187,7 @@ def checkout():
     for cart_item, product in cart_items:
         total_amount += cart_item.quantity * product.price
 
-    amount = total_amount * 100
+    amount = int(total_amount * 100)
 
     customer = stripe.Customer.create(
         email=user.email,
@@ -196,7 +196,7 @@ def checkout():
 
     # Create a charge using the Stripe API
     stripe.Charge.create(
-        customer=user.id,
+        customer=customer.id,
         amount=amount,
         currency='usd',
         description='Flask Charge'
