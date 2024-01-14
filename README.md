@@ -16,7 +16,7 @@ Welcome to the Nordic Design Furniture eCommerce website repository! This projec
 - Stripe (payment integration)
 - HTML/CSS (frontend)
 
-   ## Getting Started
+ ## Getting Started
   - **Fork the repository:** You should **fork the repository** and then **clone it** so you can manage your own repo and use this only as a template.
     ```
     $ git clone https://github.com/your-username/nordic-design-furniture.git
@@ -38,18 +38,25 @@ Welcome to the Nordic Design Furniture eCommerce website repository! This projec
 ## Usage:
 - Navigate to the homepage to view locally crafted designer furniture.
 - Explore furniture details, click on the product on the home page. Details are shown at 'http://127.0.0.1:5000/post/id'
+- Login or register before show chart details.
 - Add desired product into the chart by click the plus icon. the '/add' route and filling in the required details.
 - Make real checkout process filling the payment details. Real Checkout is done with via Stripe. 
 
 ## Screenshots
  - Home Page:    
-   <div align="center"><img src="cafes_1.png" alt="UI Screenshot"/></div>
+   <div align="center"><img src="e_commerce_homepage.png" alt="UI Screenshot"/></div>
 
- - View Cafes:    
-   <div align="center"><img src="cafes_2.png" alt="UI Screenshot"/></div>
+ - Product Detail:    
+   <div align="center"><img src="e_commerce_product_detail.png" alt="UI Screenshot"/></div>
+   
+ - Login:    
+   <div align="center"><img src="e_commerce_login.png" alt="UI Screenshot"/></div>
 
-  - Add Cafe:    
-   <div align="center"><img src="cafes_3.png" alt="UI Screenshot"/></div> 
+  - Chart Detail:    
+   <div align="center"><img src="e_commerce_chart.png" alt="UI Screenshot"/></div>
+
+  - Checkout Process:    
+   <div align="center"><img src="e_commerce_stripe_payment.png" alt="UI Screenshot"/></div>
 
 ## Contributing
    Contributions are welcome! Please fork the repository and create a pull request with your changes.
