@@ -57,6 +57,9 @@ Welcome to the Nordic Design Furniture eCommerce website repository! This projec
 
   - Checkout Process:    
    <div align="center"><img src="e_commerce_stripe_payment.png" alt="UI Screenshot"/></div>
+   
+  - Successful Payment:    
+   <div align="center"><img src="e_commerce_payment_successful.png" alt="UI Screenshot"/></div>
 
 ## Contributing
    Contributions are welcome! Please fork the repository and create a pull request with your changes.
