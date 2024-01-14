@@ -43,22 +43,22 @@ Welcome to the Nordic Design Furniture eCommerce website repository! This projec
 - Make real checkout process filling the payment details. Real Checkout is done with via Stripe. 
 
 ## Screenshots
- - Home Page:    
+ - **Home Page:**    
    <div align="center"><img src="e_commerce_homepage.png" alt="UI Screenshot"/></div>
 
- - Product Detail:    
+ - **Product Detail:**    
    <div align="center"><img src="e_commerce_product_detail.png" alt="UI Screenshot"/></div>
    
- - Login:    
+ - **Login:**    
    <div align="center"><img src="e_commerce_login.png" alt="UI Screenshot"/></div>
 
-  - Chart Detail:    
+  - **Chart Detail:**   
    <div align="center"><img src="e_commerce_chart.png" alt="UI Screenshot"/></div>
 
-  - Checkout Process:    
+  - **Checkout Process:**    
    <div align="center"><img src="e_commerce_stripe_payment.png" alt="UI Screenshot"/></div>
    
-  - Successful Payment:    
+  - **Successful Payment:**    
    <div align="center"><img src="e_commerce_payment_successful.png" alt="UI Screenshot"/></div>
 
 ## Contributing
